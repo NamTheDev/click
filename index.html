@@ -44,10 +44,29 @@ color: white;
 margin-top: 10px;
 font-family: "consolas";
 }
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  margin-left: -400px
+}
+
+.button:hover {opacity: 1}
 </style>
 </head>
 <body>
 <section>
+  <button class="button" id="clear">Clear</button>
 <div class="container">
 <button id="button">Click</button>
 <p id="demoScore">Count : 0</p>
@@ -55,10 +74,15 @@ font-family: "consolas";
 </section>
 <script type="text/javascript">
 const button = document.getElementById("button");
+const clear = document.getElementById("clear");
 const demoScore = document.getElementById("demoScore");
 let score = 0;
 button.addEventListener("click", () => {
 score++;
+demoScore.innerHTML = "Count : " + score;
+});
+clear.addEventListener("click", () => {
+score = 0;
 demoScore.innerHTML = "Count : " + score;
 });
 </script>
